@@ -1,2 +1,3 @@
-# Algorithm
-Record learning Algorithm
+# AlgorithmLearning
+
+description:Record the algorithm solutution 

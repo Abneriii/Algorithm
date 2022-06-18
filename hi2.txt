@@ -1,0 +1,214 @@
+
+
+//
+//Hou自己想到了这些题应该用动态规划法/充分意识到应该使用动态规划，并自己用动态规划法实现了。
+
+
+
+
+/*
+LC.322.零钱兑换
+2022.4.2:Hou:看了题解，懂了，自己代码实现了。
+
+*/
+
+
+class Solution {
+    public int coinChange(int[] coins, int amount) {
+        //dp[i]表示剩余i金额时，需要的最少的硬币个数
+        int[] dp=new int[amount+1];
+        for(int i=0;i<=amount;i++){
+            dp[i]= amount+1;
+        } 
+        if(amount==0) return 0;
+        dp[0]=0;
+        for(int i=1;i<=amount;i++){
+            for(int j=0;j<coins.length;j++){
+                if(i<coins[j]) continue;
+                dp[i]=Math.min(dp[i],dp[i-coins[j]]+1);
+            }
+
+        }
+        if(dp[amount]> amount){
+            return -1;
+        }
+        else{
+            return dp[amount];
+        }
+
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+LC.121.买卖股票的最佳时机
+2022.3.20:Hou:只想出暴力算法，时间复杂度平方级别。------------看题解方法，懂了，自己代码实现了。
+
+*/
+class Solution {
+    public int maxProfit(int[] prices) {
+       //lowestPrice[i]表示第i天前的最低价格 
+       int[] lowestPrice=new int[prices.length];
+       //完成对lowestPrice数组的赋值
+       lowestPrice[0]=prices[0];
+       int min=prices[0];
+       for(int i=1;i<prices.length;i++){
+           if(min>prices[i]){
+               min=prices[i];
+           }
+           lowestPrice[i]=min;
+       }
+       //遍历一遍数组，同时在遍历过程中不断更新最大值
+        int highestProfit=0;
+        for(int i=1;i<prices.length;i++){
+            if(prices[i]-lowestPrice[i]>highestProfit){
+                highestProfit=prices[i]-lowestPrice[i];
+            }
+
+        }
+        return highestProfit;
+    }
+}
+
+
+/*
+
+
+LC.309.最佳买卖股票时机含冷冻期
+2022.3.20:Hou:自己想出了动态规划的方法，自己用代码实现了。
+*/
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int[][] dp=new int[prices.length][2];
+        dp[0][0]=0;
+        dp[0][1]=prices[0]*(-1);
+        
+        //记录下当时在那一天的选择:[0]=0表示现在的空是由于没动；[0]=1表示现在的空是由于卖出；[1]=0表示现在的持有是由于没动，[1]=1表示现在的持有是由于买入
+        int[][] memo=new int[prices.length][2]; 
+        memo[0][1]=1;
+        memo[0][0]=0;
+        for(int i=1;i<prices.length;i++){
+            if(dp[i-1][0]>dp[i-1][1]+prices[i]){
+                memo[i][0]=0;
+                dp[i][0]=dp[i-1][0];
+            }
+            if(dp[i-1][0]<=dp[i-1][1]+prices[i]){
+                 memo[i][0]=1;
+                dp[i][0]=dp[i-1][1]+prices[i];
+
+            }
+            //前一天的没有持有是因为没动，所以有两种可选择情况
+            if(memo[i-1][0]==0){
+                  dp[i][1]=Math.max(dp[i-1][1],dp[i-1][0]-prices[i]);
+
+            }
+             //前一天的没有持有是因为卖出，所以有两种可选择情况
+            if(memo[i-1][0]==1){
+                 dp[i][1]=Math.max(dp[i-1][1],dp[i-2][0]-prices[i]);
+            }
+          
+
+        }
+        return Math.max(dp[dp.length-1][0],dp[dp.length-1][1]);
+    }
+
+    }
+
+
+/*
+
+LC.198.打家劫舍
+2022.3.20:Hou:自己想出了动态规划的方法，自己用代码实现了。
+
+*/
+class Solution {
+    public int rob(int[] nums) {
+        //dp[i][j]表示第i间屋子，[j]=0表示截至目前+没偷这间屋子钱时的最大偷取金额;[j]=1表示截至目前+偷了这间屋子钱时的最大偷取金额
+        int[][ ] dp=new int[nums.length][2];
+        dp[0][0]=0;
+        dp[0][1]=nums[0];
+        for(int i=1;i<nums.length;i++){
+             dp[i][0]=Math.max(dp[i-1][0],dp[i-1][1]);
+             if(i==1){
+                  dp[i][1]= Math.max(nums[1],nums[0]);
+             }
+             else{
+                  dp[i][1]=Math.max(dp[i-1][0]+nums[i],dp[i-2][1]+nums[i]);
+             }
+            
+        }
+        return Math.max(dp[dp.length-1][0],dp[dp.length-1][1]);
+       
+
+
+
+    }
+}
+
+
+/*
+
+LC.53.最大子数组和
+2022.3.21:做出。
+
+*/
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        //dp[i]代表以nums[i]为结尾的连续子数组和的最大值
+        int lastIndex=nums.length-1;
+        int[] dp=new int[nums.length];
+        dp[0]=nums[0];  
+        int max=nums[0];
+        for(int i=1;i<nums.length;i++){
+            dp[i]=Math.max(nums[i],dp[i-1]+nums[i]);
+            if(dp[i]>max){
+                max=dp[i];
+            }
+        }
+        return max;
+    }
+}
+
+
+/
+*
+LC.62.不同路径
+2022.3.22:Hou:看题解，懂了，自己代码实现了。
+*
+/
+class Solution {
+    public int uniquePaths(int m, int n) {
+        //dp[i][j]表示从(0,0)到(i,j)的总路径数
+        int[][] dp=new int[m][n];
+        for(int i=0;i<m;i++) dp[i][0]=1;
+        for(int j=0;j<n;j++) dp[0][j]=1;
+       
+        for(int i=1;i<m;i++){
+            for(int j=1;j<n;j++){
+                    dp[i][j]=dp[i][j-1]+dp[i-1][j];
+            }
+        }
+        return dp[m-1][n-1];
+
+
+
+    }
+}
+
+
+
+
+
