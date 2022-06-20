@@ -1,4 +1,4 @@
-package abner.Algorithm.Recursion;
+package Recursion;
 
 import java.util.Arrays;
 
