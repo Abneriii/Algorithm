@@ -15,7 +15,7 @@ package SortingAlgorithm;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] nums=new int[10]{};
+        int[] nums=new int[10];
         mergeSort(nums);
         System.out.println();
     }
