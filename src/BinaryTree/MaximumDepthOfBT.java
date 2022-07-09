@@ -8,7 +8,7 @@ package BinaryTree;
  * problem:https://leetcode.cn/problems/maximum-depth-of-binary-tree/
  *
  **/
-public class MaximumDepthOfBinaryTree {
+public class MaximumDepthOfBT {
 
 
 
@@ -73,3 +73,25 @@ public class MaximumDepthOfBinaryTree {
 //
 //    }
 //}
+
+
+
+//NK.BM28 二叉树的最大深度
+//mineSF"每个节点比较左右两个子节点的深度，将深度更大的数量返回."---2022.2.25
+
+// class Solution {
+//    /**
+//     *
+//     * @param root TreeNode类
+//     * @return int整型
+//     */
+//    public int maxDepth (TreeNode root) {
+//        // write code here
+//        if(root==null) return 0;
+//        int left=maxDepth(root.left);
+//        int right=maxDepth(root.right);
+//        return  left>right? left+1:right+1;
+//
+//    }
+//}
+

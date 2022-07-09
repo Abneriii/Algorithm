@@ -1,2 +1,9 @@
-BinaryTree Algorithm Need】
-A tree generator like Leetcode 。2022.6.20
+
+1.我需要一个二叉树生成器 。2022.6.20
+2.input：TreeNode output：Print a tree visually.
+
+
+
+
+
+
