@@ -1,4 +1,6 @@
-package BinaryTree;
+package BinaryTree.BST;
+
+
 
 /**
  * Author:

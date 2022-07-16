@@ -1,4 +1,6 @@
-package BinaryTree;
+package BinaryTree.BST;
+
+
 
 /**
  * Author:
@@ -24,7 +26,7 @@ public class ValidateBST {
 
         }
 
-        public boolean isValidBST(TreeNode root,long max,long min){
+        public boolean isValidBST(TreeNode root, long max, long min){
             if(root==null) return true;
             else if(root.left==null&&root.right==null) return true;
             else if(root.left!=null&&root.right==null&&root.val>root.left.val&&root.left.val>min) return isValidBST(root.left,root.val,min);

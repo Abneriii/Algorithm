@@ -1,4 +1,6 @@
-package BinaryTree;
+package BinaryTree.BST;
+
+
 
 import java.util.ArrayList;
 import java.util.List;
