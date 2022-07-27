@@ -1,4 +1,5 @@
-package BinaryTree;
+package BinaryTree.TraversalOfBT;
+
 
 import java.util.Arrays;
 import java.util.LinkedList;
