@@ -12,7 +12,7 @@ package BinaryTree.BST;
  *
  *
  **/
-public class NearestAncestorOfBST {
+public class NearestCommonAncestorOfBST {
     /**
      *2022.3.7:自己没思路，看了题解思路，自己实现的代码.
      *
