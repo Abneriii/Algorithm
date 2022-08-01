@@ -22,30 +22,76 @@ public class PathSum {
      *
      * 2022.6.22---解法有误。------todo分析错因
      */
-//
-//    class Solution {
-//        public boolean hasPathSum(TreeNode root, int targetSum) {
-//            if(root==null){
-//                return false;
-//            }
-//            return hasPathSum(root,root.val,targetSum);
-//        }
-//        public boolean hasPathSum(TreeNode root,int rightNowSum,int targetSum){
-//            if(root==null){
-//                return false;
-//            }
-//            if(root.left==null&&root.right==null){
-//                if(rightNowSum+root.val==targetSum){
-//                    return true;
-//                }else{
-//                    return false;
-//                }
-//            }
-//            hasPathSum(root.left,rightNowSum+root.val,targetSum);
-//            hasPathSum(root.right,rightNowSum+root.val,targetSum);
-//            return false;
-//        }
-//
-//    }
+
+    static class Solution1 {
+        public boolean hasPathSum(TreeNode root, int targetSum) {
+            if(root==null){
+                return false;
+            }
+            return hasPathSum(root,root.val,targetSum);
+        }
+        public boolean hasPathSum(TreeNode root,int rightNowSum,int targetSum){
+            if(root==null){
+                return false;
+            }
+            if(root.left==null&&root.right==null){
+                if(rightNowSum+root.val==targetSum){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            hasPathSum(root.left,rightNowSum+root.val,targetSum);
+            hasPathSum(root.right,rightNowSum+root.val,targetSum);
+            return false;
+        }
+
+    }
+
+    /**
+     *Hou---算法有误
+     */
+    static class Solution2{
+
+            /**
+             *
+             * @param root TreeNode类
+             * @param sum int整型
+             * @return bool布尔型
+             */
+            public boolean hasPathSum (TreeNode root, int sum) {
+                // write code here
+                int realsum=0;
+                Integer flag=new Integer(0);
+                hasPathSum(root,sum,realsum,flag);
+                if(flag==1){
+                    return true;
+                }
+                return false;
+
+            }
+            public int hasPathSum(TreeNode root,int sum,int realsum,Integer flag){
+                if(root==null){
+                    return 0;
+                }
+                realsum+=root.val;
+                hasPathSum(root.left,sum,realsum,flag);
+                hasPathSum(root.right,sum,realsum,flag);
+                if(root.left==null&&root.right==null){
+                    if(realsum==sum){
+                        flag=1;
+                        return 1;
+
+                    }
+                }
+                return 0;
+
+            }
+
+
+        }
+
+
+
 
 }
