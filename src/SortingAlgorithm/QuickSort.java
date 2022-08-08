@@ -20,12 +20,13 @@ public class QuickSort {
     static class QuickSort1{
 
         public static void main(String[] args) {
-            int[] nums={9,8,7,6,5,4,3,2,1};
+            int[] nums={3,-1,2,4};
             quickSort(nums,0, nums.length-1);
             for(int num:nums){
                 System.out.println(num);
             }
         }
+
         public  static  void quickSort(int[] nums,int start,int end){
             if(nums.length==0||start>=end){
                 return;
@@ -66,6 +67,10 @@ public class QuickSort {
             }
             return left;
         }
+
+
+
+
     }
 
 
