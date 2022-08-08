@@ -74,6 +74,66 @@ public class QuickSort {
     }
 
 
+    static class QuickSort2 {
+
+        //2022.3.11快排，没通过牛客，但是自己的用例是对的，不知为啥，不知道是不是自己算法有误。
+        public  static  void main(String[] argu){
+            int[]a={1,3,2,4,3,2,6,7,56,100,222};
+            System.out.println(findKth(a,11,8));
+            for(int num:a){
+                System.out.println(num);
+            }
+
+
+        }
+        public static int findKth(int[] a, int n, int K) {
+            // write code here
+
+            quicksort(a,0,a.length-1);
+            return a[K-1];
+
+        }
+
+        public static  void quicksort(int[] a,int leftandFlag,int right){
+            if(leftandFlag<right){
+                int j=partition(a,leftandFlag,right);
+                quicksort(a,0,j-1);
+                quicksort(a,j+1,right);
+            }
+
+
+        }
+
+        public static  int partition(int[]a,int leftandFlag,int right){
+            int flag=leftandFlag;
+            int left=leftandFlag;
+            right++;
+            while(true){
+                while(left<a.length-1&&a[++left]<=a[flag]){
+                    if(left>right) break;
+                }
+                while(right>0&&a[--right]>=a[flag]){
+                    if(right<left) break;
+                }
+                if(left>=right) break;
+                int help=a[left];
+                a[left]=a[right];
+                a[right]=help;
+
+            }
+            int help=a[flag];
+            a[flag]=a[right];
+            a[right]=help;
+            return right;
+
+        }
+
+
+
+
+    }
+
+
 
 
 }

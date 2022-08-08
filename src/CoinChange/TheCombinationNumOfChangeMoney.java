@@ -20,4 +20,36 @@ package CoinChange;
 public class TheCombinationNumOfChangeMoney {
 
 
+    /*
+
+    LC.518.零钱兑换 II
+    2022.3.22:Hou:此题用了最初级的回溯法，提交显示的是超出内存限制，自己又测试了几个用例，结果是正确的，说明暴力方法没错，但暴力的内存太费，需要优化。；
+    */
+    static class Solution {
+        //回溯法
+        int count=0;
+        public int change(int amount, int[] coins) {
+            change(amount,0,coins);
+            return count;
+
+        }
+
+
+        public void change(int amount,int index,int[] coins){
+            if(amount==0){
+                count++;
+                return;
+            }
+            for(;index<coins.length;index++){
+                if(coins[index]<=amount){
+                    change(amount-coins[index],index,coins);
+                }
+            }
+
+
+        }
+    }
+
+
+
 }

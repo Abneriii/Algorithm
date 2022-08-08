@@ -6,8 +6,8 @@ package LinkedList;
  * Updated at:
  **/
 public class ListNode {
-    private int val;
-    private ListNode next;
+     int val;
+    ListNode next;
 
 
 }
