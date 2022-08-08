@@ -5,6 +5,25 @@ package SortingAlgorithm;
  * Created at:2022/7/31
  * Updated at:
  *
+ * input:nums
+ * output:
+ *
+ *
+ *
+ * quicksort(nums,startIndex,endIndex){
+ *     if(startIndex<endIndex){
+ *     segmentIndex=partition(nums,startIndex,endIndex);
+ *     quicksort(nums,startIndex,segmentIndex-1);
+ *     quicksort(nums,segmentIndex+1,endIndex);
+ *     }
+ * }
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  *
  *
  **/
@@ -15,8 +34,9 @@ public class QuickSort {
      *
      *2022。7.31---Hou----有误待排查。
      *
+     *
+     *
      */
-
     static class QuickSort1{
 
         public static void main(String[] args) {
@@ -74,25 +94,20 @@ public class QuickSort {
     }
 
 
+    /**
+     * //2022.3.11
+     */
     static class QuickSort2 {
 
-        //2022.3.11快排，没通过牛客，但是自己的用例是对的，不知为啥，不知道是不是自己算法有误。
+
         public  static  void main(String[] argu){
             int[]a={1,3,2,4,3,2,6,7,56,100,222};
-            System.out.println(findKth(a,11,8));
+            quicksort(a,0,a.length-1);
             for(int num:a){
                 System.out.println(num);
             }
-
-
         }
-        public static int findKth(int[] a, int n, int K) {
-            // write code here
 
-            quicksort(a,0,a.length-1);
-            return a[K-1];
-
-        }
 
         public static  void quicksort(int[] a,int leftandFlag,int right){
             if(leftandFlag<right){
@@ -133,6 +148,60 @@ public class QuickSort {
 
     }
 
+
+    /**
+     * 2022.8.8----正确
+     */
+    static class QuickSort3{
+
+        public static void main(String[] args) {
+            int[] nums={3,-1,2,4,-1};
+            quickSort(nums,0, nums.length-1);
+            for(int num:nums){
+                System.out.println(num);
+            }
+        }
+
+        public  static  void quickSort(int[] nums,int start,int end){
+            if(nums.length==0||start>=end){
+                return;
+            }
+            System.out.println("nums[start]处的数字是"+nums[start]);
+            int index=partition(nums,start,end);
+            System.out.println("nums[index]"+nums[index]);
+            quickSort(nums,start,index-1);
+            quickSort(nums,index+1,end);
+
+        }
+
+        /**
+         *
+         * @param nums
+         * @param start
+         * @param end
+         * @return
+         */
+        private  static  int partition(int[] nums,int start,int end){
+            int i=start-1;
+            int pivot=nums[end];
+            for(int j=start;j<end;j++){
+                if(nums[j]<pivot){
+                    i++;
+                    int help=nums[j];
+                    nums[j]=nums[i];
+                    nums[i]=help;
+                }
+            }
+            int help=nums[i+1];
+            nums[i+1]=pivot;
+            nums[end]=help;
+            return i+1;
+        }
+
+
+
+
+    }
 
 
 
