@@ -1,4 +1,4 @@
-package Others;
+package CombinationSumToBeTarget;
 
 /**
  * Author:
@@ -9,7 +9,7 @@ package Others;
  *
  *
  **/
-public class CombinationToBeTargetSum4 {
+public class CombinationSumToBeTarget4 {
 
     /**
      *

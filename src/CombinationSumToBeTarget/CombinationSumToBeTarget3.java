@@ -1,4 +1,4 @@
-package Others;
+package CombinationSumToBeTarget;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  *
  *
  **/
-public class CombinationToBeTargetSum3 {
+public class CombinationSumToBeTarget3 {
 
     /**
      *

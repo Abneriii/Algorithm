@@ -1,4 +1,4 @@
-package Others;
+package CombinationSumToBeTarget;
 
 import java.util.*;
 
@@ -8,7 +8,7 @@ import java.util.*;
  * Updated at:
  * 40. 组合总和 II
  **/
-public class CombinationToBeTargetSum2 {
+public class CombinationSumToBeTarget2 {
 
     /**
      * 测试用例：[10,1,2,7,6,1,5]  8
