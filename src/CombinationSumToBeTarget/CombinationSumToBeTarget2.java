@@ -10,6 +10,55 @@ import java.util.*;
  **/
 public class CombinationSumToBeTarget2 {
 
+
+
+
+
+    /**
+     *
+     *
+     *   2022.8.12---Hou--算法有误。
+     *       测试用例：[10,1,2,7,6,1,5]  8
+     *       我的程序的输出：[[1,2,5],[1,7],[1,6,1],[2,6],[2,1,5],[7,1]]
+     *       预期正确结果输出：[[1,1,6],[1,2,5],[1,7],[2,6]]
+     *
+     */
+
+
+    static class Solution2{
+
+        public static void main(String[] args) {
+            int[] candidates=new int[]{10,1,2,7,6,1,5};
+            List<List<Integer>> list=new ArrayList<>(new ArrayList<>());
+            list=combinationSum(candidates,8);
+            System.out.println(list);
+            int a=1;
+        }
+        public static List<List<Integer>> combinationSum(int[] candidates, int target) {
+            combinationSunHelper(candidates,0,0,target);
+            return result;
+        }
+        static List<List<Integer>> result=new ArrayList<>();
+        static List<Integer> resultPart=new ArrayList<>();
+        public static void combinationSunHelper(int[] candidates,int nowIndex,int nowSum,int targetSum){
+            if (nowSum>=targetSum){
+                if(nowSum==targetSum) result.add(new ArrayList<>(resultPart));
+                return;
+            }
+            for(int i=nowIndex;i<candidates.length;i++){
+                resultPart.add(candidates[i]);
+                nowSum+=candidates[i];
+                combinationSunHelper(candidates,i+1,nowSum,targetSum);
+                nowSum-=candidates[i];
+                resultPart.remove(resultPart.size()-1);
+            }
+
+        }
+    }
+
+
+
+
     /**
      * 测试用例：[10,1,2,7,6,1,5]  8
      * *     我的程序的输出：[[1,2,5],[1,7],[1,6,1],[2,6],[2,1,5],[7,1]]
