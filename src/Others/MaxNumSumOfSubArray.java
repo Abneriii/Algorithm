@@ -38,6 +38,8 @@ public class MaxNumSumOfSubArray {
 
     }
 
+
+
     static class Solution2{
         /*NC.19.连续子数组的最大和
         2022.3.11----不会做，看题解，别人的方法：动态规划法,感觉不错。懂了。
