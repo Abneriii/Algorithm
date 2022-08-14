@@ -15,7 +15,7 @@ public class LongestPalindromicSubstring {
     /**
      *
      *
-     * 2022.8.14---看官方题解后，自己重写算法,待实现。
+     * 2022.8.14---看官方题解后，自己重写算法,实现了。
      * HouAlgorithm---------
      *
      *
@@ -31,10 +31,10 @@ public class LongestPalindromicSubstring {
 
     static class Solution1 {
         public static void main(String[] args) {
-            System.out.println(countSubstrings("aaa"));
+            System.out.println(longestPalindrome("aaa"));
         }
 
-        public static int countSubstrings(String s) {
+        public static String longestPalindrome(String s) {
             int sLength=s.length();
             int result=0;
             boolean[][] isPalindromic=new boolean [sLength][sLength];
@@ -51,14 +51,18 @@ public class LongestPalindromicSubstring {
                     isPalindromic[i][j]=isPalindromic[i+1][j-1]&&(s.charAt(i)==s.charAt(j));
                 }
             }
+            int flag=0;
             for(int j=0;j<sLength;j++){
                 for(int i=0;i<=j;i++){
-                    if(isPalindromic[i][j]){
-                        result++;
+                    if(isPalindromic[i][j]&&result<j-i+1){
+                        result=j-i+1;
+                        flag=i;
+
                     }
                 }
             }
-            return result;
+
+            return s.substring(flag,flag+result);
         }
     }
 
