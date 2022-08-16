@@ -4,8 +4,48 @@ package LinkedList;
  * Author:
  * Created at:2022/8/8
  * Updated at:
+ *
+ *
+ *
+ * 206. 反转链表
  **/
 public class ReverseLinkedList {
+
+    /**
+     *
+     *
+     * 2022.8.16---HouAlgorithm-----------通过了
+     * while(current!=null){
+     *    nextNode=current.next
+     *    currentNode.next=previousNode;
+     *    currentNode=nextNode;
+     *    previous=current;
+     * }
+     * return previousNode;
+     *2022.8.16---HouAlgorithm-----------
+     *
+     */
+    static class Solution3{
+        public static void main(String[] args) {
+            int[] arr=new int[]{1,2,3,4,5};
+
+        }
+        public static ListNode reverseList(ListNode head) {
+            ListNode previousNode=null;
+            ListNode currentNode=head;
+            while(currentNode!=null){
+                ListNode nextNode=currentNode.next;
+                currentNode.next=previousNode;
+                previousNode=currentNode;
+                currentNode=nextNode;
+            }
+            return previousNode;
+        }
+
+
+
+
+    }
 
 
     /*
@@ -15,15 +55,15 @@ public class ReverseLinkedList {
     */
     static class Solution1 {
         ListNode newHead;
-        public ListNode ReverseList(ListNode head) {
+        public ListNode reverseList(ListNode head) {
             newHead =head;
-            ReverseList2(head);
+            reverseList2(head);
             return newHead;
 
         }
 
 
-        public ListNode ReverseList2(ListNode node){
+        public ListNode reverseList2(ListNode node){
             if(node==null){
                 return null;
             }
@@ -31,7 +71,7 @@ public class ReverseLinkedList {
                 newHead=node;
                 return node;
             }
-            node.next=ReverseList2(node.next);
+            node.next=reverseList2(node.next);
             node.next.next=node;
             node.next=null;
             return node;
