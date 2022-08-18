@@ -9,13 +9,24 @@ import java.util.List;
  * Created at:2022/8/8
  * Updated at:
  * 15. 三数之和
- *
+ * 2022.8.18-----不会。
  *
  **/
 public class Which3NumsSumIs0 {
 
+    /**
+     *
+     *
+     *
+     *
+     */
+    static class Solution2{
 
-    static class Solution {
+
+    }
+
+
+    static class Solution1 {
 //LC.15.三数之和
 //2022.3.13:没思路。--看题解，方法：双指针，懂了，自己实现，没通过，因为[0,0,0,0]这个特殊情况下不成立，dai修正自己的代码。
 
