@@ -16,7 +16,18 @@ public class Which3NumsSumIs0 {
 
     /**
      *
+     *2022.8.18----HouAlgo-----看了题解答案，然后自己写的算法，dai实现验证正确与否--------------------
+     * input:int[] nums
+     * sort(nums)
+     * result
+     * for i=0 to nums.size()-2
+     *     for(j=i+1,k=nums.size()-1;j<k;)
+     *          if(nums[i]+nums[j]+[nums[k]==0)
+     *              result.put(nums[i],nums[j],nums[k])
+     *          将j移动到不等于现在值的位置，同时保证j<k
+     *          将k移动到不等于现在值的位置，同时保证j<k
      *
+     * ----------------------
      *
      *
      */

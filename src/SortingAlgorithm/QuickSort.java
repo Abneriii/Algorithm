@@ -5,6 +5,12 @@ package SortingAlgorithm;
  * Created at:2022/7/31
  * Updated at:
  *
+ * 快速排序
+ *
+ * 2022.8.19----不会写partition的算法。
+ *
+ *
+ *
  * input:nums
  * output:
  *
@@ -31,7 +37,16 @@ package SortingAlgorithm;
 public class QuickSort {
 
     /**
-     * 2022.8.8----正确
+     *
+     *
+     *
+     *
+     *
+     *
+     */
+
+    /**
+     * 2022.8.8----正确----目前位置最好的算法
      */
     static class QuickSort3{
 
@@ -66,7 +81,7 @@ public class QuickSort {
             int i=start-1;
             int pivot=nums[end];
             for(int j=start;j<end;j++){
-                if(nums[j]<pivot){
+                if(nums[j]<=pivot){
                     i++;
                     int help=nums[j];
                     nums[j]=nums[i];
