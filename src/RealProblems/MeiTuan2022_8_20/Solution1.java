@@ -1,5 +1,6 @@
-import java.util.Scanner;
 
+package RealProblems.MeiTuan2022_8_20;
+import java.util.Scanner;
 /**
  * Author:
  * Created at:2022/8/20
@@ -37,22 +38,24 @@ import java.util.Scanner;
  *
  *
  **/
-//public class Solution1 {
-//    public static void main(String[] args) {
-//        Scanner in =new Scanner(System.in);
-//        int n=in.nextInt();
-//        System.out.println(n);
-//
-//
-//        for (int i = 0; i < n; i++) {
-//            System.out.print(hunArray[i]);
-//            System.out.print(suArray[i]);
-//        }
-//
-//
-//
-//    }
-//
-//
-//
-//}
+public class Solution1 {
+    public static void main(String[] args) {
+        Scanner in =new Scanner(System.in);
+        int n=in.nextInt();
+        in.nextLine();
+        String hun=in.next();
+        char[] hunArray=hun.toCharArray();
+        String su=in.next();
+        char[] suArray=su.toCharArray();
+        for (int i = 0; i < n; i++) {
+            System.out.print(hunArray[i]);
+            System.out.print(suArray[i]);
+        }
+
+
+
+    }
+
+
+
+}
