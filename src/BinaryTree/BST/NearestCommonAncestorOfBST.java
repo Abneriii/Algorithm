@@ -10,7 +10,7 @@ package BinaryTree.BST;
  *
  * //LC.235.二叉搜索树的最近公共祖先
  *
- *
+ *NearestCommonAncestorOfBT
  **/
 public class NearestCommonAncestorOfBST {
     /**
