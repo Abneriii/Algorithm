@@ -1,5 +1,5 @@
 
-package RealProblems.MeiTuan2022_8_20;
+package CompanyExams.MeiTuan2022_8_20;
 import java.util.Scanner;
 /**
  * Author:

@@ -1,56 +1,5 @@
 
 
-/*
-LC.200.岛屿数量
-2022.3.31:Hou:"dfs思想"，代码实现了。
-*/
-
-class Solution {
-
-    int row;
-    int column;
-    public int numIslands(char[][] grid) {
-    
-    //遍历二维矩阵，从每一个元素1开始将其相邻的元素变为0，这样算一个陆地，重复以上过程直到将所有的元素均变为0，即得到总陆地数
-    row=grid.length;
-    column=grid[0].length; 
-    int res=0;
-    for(int i=0;i<row;i++){
-        for(int j=0;j<column;j++){
-            if(grid[i][j]=='1' ){
-                  res++;
-                continuousArea(grid,i,j);
-                 
-            }
-     
-        }
-
-        
-    }
-    return res;
-    }
-
-
-     public  void continuousArea(char[][] grid,int x,int y){
-        grid[x][y]='0';
-		//查看上下左右
-        if(x<row-1&&grid[x+1][y]=='1'){
-            continuousArea(grid,x+1,y);
-        }
-        if(y<column-1&&grid[x][y+1]=='1'){
-            continuousArea(grid,x,y+1);
-        }
-        if(y>0&&grid[x][y-1]=='1'){
-            continuousArea(grid,x,y-1);
-        }
-        if(x>0&&grid[x-1][y]=='1'){
-            continuousArea(grid,x-1,y);
-        }
-
-    }
-
-    
-}
 
 /*
  * NC.41.最长无重复子数组

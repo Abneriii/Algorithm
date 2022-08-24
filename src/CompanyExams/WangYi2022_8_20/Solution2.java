@@ -1,6 +1,4 @@
-package RealProblems.WangYi2022_8_20;
-
-import java.util.Scanner;
+package CompanyExams.WangYi2022_8_20;
 
 /**
  * Author:

@@ -1,4 +1,4 @@
-package RealProblems;
+package CompanyExams;
 
 import java.util.Arrays;
 import java.util.Scanner;

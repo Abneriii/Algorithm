@@ -1,9 +1,13 @@
-package RealProblems.KeDaXunFei;
+package CompanyExams.KeDaXunFei2022_8_20;
 
 /**
  * Author:
  * Created at:2022/8/20
  * Updated at:
+ *
+ *
+ *
+ * 2022.8.20----AC。
  **/
 public class Solution2 {
     public static void main(String[] args) {
