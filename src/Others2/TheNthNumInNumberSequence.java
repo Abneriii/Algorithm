@@ -17,12 +17,17 @@ public class TheNthNumInNumberSequence {
      * 牛客题解。dai分析算法
      */
     static class Solution {
-        public int findNthDigit (int n) {
+        static int i;
+
+        public static void main(String[] args) {
+            Solution s=new Solution();
+        }
+        public int findNthDigit (int n){
             //记录n是几位数
             int digit = 1;
             //记录当前位数区间的起始数字：1,10,100...
             long start = 1;
-            //记录当前区间之前总共有多少位数字
+            //记录当前区间之前总共有多少位数字2szw2
             long sum = 9;
             //将n定位在某个位数的区间中
             while(n > sum){
