@@ -14,9 +14,12 @@ import java.util.List;
  **/
 public class Which3NumsSumIs0 {
 
+
+
+
     /**
-     *
-     *2022.8.18----HouAlgo-----看了题解答案，然后自己写的算法，dai实现验证正确与否--------------------
+     *2022.10.5---想出来的算法也是这个。自己尝试用代码实现，结果发现实现不出来。看了题解答案，宏观思路是差不多的。自己的代码实现有问题。
+     *2022.8.18----HouAlgo-----看了题解答案，然后自己写的算法，dai实现验证正确与否--------------------20
      * input:int[] nums
      * sort(nums)
      * result
@@ -30,15 +33,50 @@ public class Which3NumsSumIs0 {
      * ----------------------
      *
      *
+     *
+     *
+     *以下代码实现为题解答案
      */
     static class Solution2{
+        public List<List<Integer>> threeSum(int[] nums) {
+            List<List<Integer>> lists = new ArrayList<>();
+            //排序
+            Arrays.sort(nums);
+            //双指针
+            int len = nums.length;
+            for(int i = 0;i < len;++i) {
+                if(nums[i] > 0) return lists;
 
+                if(i > 0 && nums[i] == nums[i-1]) continue;
 
+                int curr = nums[i];
+                int L = i+1, R = len-1;
+                while (L < R) {
+                    int tmp = curr + nums[L] + nums[R];
+                    if(tmp == 0) {
+                        List<Integer> list = new ArrayList<>();
+                        list.add(curr);
+                        list.add(nums[L]);
+                        list.add(nums[R]);
+                        lists.add(list);
+                        while(L < R && nums[L+1] == nums[L]) ++L;
+                        while (L < R && nums[R-1] == nums[R]) --R;
+                        ++L;
+                        --R;
+                    } else if(tmp < 0) {
+                        ++L;
+                    } else {
+                        --R;
+                    }
+                }
+            }
+            return lists;
+        }
     }
 
 
     static class Solution1 {
-//LC.15.三数之和
+
 //2022.3.13:没思路。--看题解，方法：双指针，懂了，自己实现，没通过，因为[0,0,0,0]这个特殊情况下不成立，dai修正自己的代码。
 
         public static List<List<Integer>> threeSum(int[] nums) {
