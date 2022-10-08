@@ -10,10 +10,35 @@ import java.util.List;
  * Updated at:
  *
  * 77. 组合
- * 2022.8.1---Hou--
+ *
  *
  **/
 public class CombinationOfKNumsInOneToN {
+
+    /**
+     *
+     * 2022.10.8-----Hou算法如下。
+     *
+     * input=n and k
+     * combine(int n,int k)
+     *   combine2(1,n,k);
+     *
+     * result=[[]]
+     * partResult=[]
+     * combine2(int start,int end,int need,int[] partResult)
+     *   if need==0
+     *        result.add(partResult);
+     *        return;
+     *   for start to end
+     *       partResult.add(start);
+     *       combine2(start+1.end,need-1,partResult);
+     *       partResult.removeLastOne()
+     *
+     *
+     *
+     *
+     */
+
 
     /**
      * 《代码随想录》
