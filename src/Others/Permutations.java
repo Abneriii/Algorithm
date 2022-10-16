@@ -14,8 +14,15 @@ import java.util.List;
 public class Permutations {
 
 
+    /**
+     *
+     * for i in nums
+     *  
+     *
+     */
     static class Solution {
 //        public List<List<Integer>> permute(int[] nums) {
+//
 //
 //        }
     }
